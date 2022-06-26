@@ -182,12 +182,14 @@ function checkName (){
 
 function checkEmail () {
     let emailValue = email.value
-    const validEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailValue)
+    const validEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailValue);
+    
     if (validEmail){
         validPass(email)
     } else {
         validFail(email)
     }
+    
     return validEmail;
 }
 
@@ -229,6 +231,19 @@ function checkCardNumber() {
     } else {
         validFail(cardNumber)
     }
+
+    // test for special characters and white spaces
+    const testSpecialChar = /[a-zA-Z`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(ccValue);
+    const testGap = /\s/.test(ccValue)
+    
+    if (testSpecialChar){
+        cardNumber.parentElement.lastElementChild.textContent = 'Credit card number cannot contain characters or special characters'
+    } else if (testGap) {
+        cardNumber.parentElement.lastElementChild.textContent = 'Credit card number cannot contain spaces'
+    } else {
+        cardNumber.parentElement.lastElementChild.textContent = 'Credit card number must be between 13 - 16 digits'
+    }
+
     return validCC;
 }
 
@@ -357,3 +372,6 @@ cvv.addEventListener('blur', () => checkCVV())
 
 // Conditional error message
 
+// Email must contain @ sign. 
+
+// Email address cannot have spaces
