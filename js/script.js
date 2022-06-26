@@ -362,7 +362,7 @@ checkBoxes[4].addEventListener('change', () => {
     }
 })
 
-// Real-time error message
+// Real-time error message for Name, Email, Card Number, Zip Code and CVV
 
 nameField.addEventListener('blur', () => checkName())
 email.addEventListener('blur',  () => checkEmail())
@@ -370,8 +370,3 @@ cardNumber.addEventListener('blur', () => checkCardNumber())
 zipCode.addEventListener('blur', () => checkZipCode())
 cvv.addEventListener('blur', () => checkCVV())
 
-// Conditional error message
-
-// Email must contain @ sign. 
-
-// Email address cannot have spaces
