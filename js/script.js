@@ -1,3 +1,6 @@
+
+
+
 /** 
  * When the page first loads, the first text field should have the focus state by default to prompt the user.
 */
@@ -85,7 +88,7 @@ selectShirtDesign.addEventListener('change', (e) =>{
 // let totalCost  = document.getElementById('activities-cost');
 let totalCost = 0;
 const totalCostofActivities = document.getElementById('activities-cost');
-const registerActivity = document.getElementById('activities');
+const registerActivity = document.getElementById('activities-box');
 
 
 // Program the "Register for Activities" fieldset element to listen for user changes.
@@ -219,6 +222,15 @@ function checkActivity (){
             return false;
         }
     }
+
+/**
+ *  
+ * Firefox browser has state persist when reloading. So we reset checkbox value to false so that no checkbox will be checked when reloading page using firefox so that the amount is correct 
+ */
+
+ for (i = 0; i< checkBoxes.length; i++) {
+    checkBoxes[i].checked = false;
+ }
 
 
 //The "Card number" field must contain a 13 - 16 digit credit card number with no dashes or spaces.
@@ -364,9 +376,9 @@ checkBoxes[4].addEventListener('change', () => {
 
 // Real-time error message for Name, Email, Card Number, Zip Code and CVV
 
-nameField.addEventListener('blur', () => checkName())
-email.addEventListener('blur',  () => checkEmail())
-cardNumber.addEventListener('blur', () => checkCardNumber())
-zipCode.addEventListener('blur', () => checkZipCode())
-cvv.addEventListener('blur', () => checkCVV())
+nameField.addEventListener('keyup', () => checkName())
+email.addEventListener('keyup',  () => checkEmail())
+cardNumber.addEventListener('keyup', () => checkCardNumber())
+zipCode.addEventListener('keyup', () => checkZipCode())
+cvv.addEventListener('keyup', () => checkCVV())
 
