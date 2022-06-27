@@ -12,7 +12,7 @@ Email:
     [2] = Domain Name
     [3] = Top-level Domain
 
-    Error for email field will occur if it DOES NOT meet any of the following:
+Error for email field will occur if it does not place '@' and '.' properly or it DOES NOT meet any of the following:
     [1] 
     Uppercase and lowercase letters in English (A-Z, a-z)
     Digits from 0 to 9
@@ -28,13 +28,13 @@ Email:
     Uppercase and lowercase letters in English (A-Z, a-z)
 
 CardNumber:
-    if input is not 13 - 16 digits long
+    if input is not 13 - 16 digits long, error will occur
 
 Zip Code: 
-    if input is not 5 digits long
+    if input is not 5 digits long, error will occur
 
 CVV:
-    if input is not 3 digits long
+    if input is not 3 digits long, error will occur
 
 /*******************************************************/
 
