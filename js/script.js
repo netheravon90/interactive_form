@@ -314,7 +314,7 @@ confForm.addEventListener('submit', (e) => {
 
     //If and only if credit card is the selected payment method:
 
-    if (paymentMethods.value === 'credit-card') 
+    if (paymentMethods.value === 'credit-card') {
 
          if (!checkCardNumber()){
          e.preventDefault();
@@ -327,6 +327,7 @@ confForm.addEventListener('submit', (e) => {
          if (!checkCVV()){
         e.preventDefault();
          }
+    }
 })
 
 
